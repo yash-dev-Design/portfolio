@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YashRoyz Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="shortcut icon" href="cube.png" type="image/x-icon">
+    <link rel="preconnect" hef="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Merriweather:wght@300;400;700;900&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary: #8b4513;
+            --secondary: #d2b48c;
+            --dark: #2b2b2b;
+            --light: #f5f5f5;
+            --text: #333;
+            --text-light: #f5f5f5;
+            --border: #d2b48c;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Merriweather', serif;
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--light);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 0;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary);
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: var(--dark);
+            color: var(--text-light);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            max-height: 70px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .logo {
+            font-family: 'Dancing Script', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            transition: all ease-in-out 0.4s;
+        }
+
+        .logo:hover {
+            scale: 1.05;
+        }
+
+        .logo a {
+            text-decoration: none;
+            color: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .logo strong {
+            color: var(--text-light);
+            transition: var(--transition);
+        }
+
+        .logo:hover a {
+            color: var(--text-light);
+            text-shadow: 0 0 4px white;
+        }
+
+        .logo:hover strong {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 4px;
+            left: 0;
+            background-color: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            transform: translateY(-6px);
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 6px;
+            z-index: 1001;
+        }
+
+        .hamburger div {
+            width: 30px;
+            height: 3px;
+            background-color: var(--text-light);
+            transition: var(--transition);
+        }
+
+        .hamburger.active div:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+            background-color: var(--secondary);
+        }
+
+        .hamburger.active div:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active div:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+            background-color: var(--secondary);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 10%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        section:nth-child(odd) {
+            background-color: var(--light);
+        }
+
+        section:nth-child(even) {
+            background-color: #eee;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--dark);
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            height: 3px;
+            width: 80px;
+            background-color: var(--primary);
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: var(--text);
+            line-height: 1.8;
+            max-width: 800px;
+            margin-bottom: 20px;
+        }
+
+        /* Home Section */
+        #home {
+            background: linear-gradient(rgba(245, 245, 245, 0.9), rgba(245, 245, 245, 0.9)),
+                url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .intro-text {
+            max-width: 900px;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .intro-text h1 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+        }
+
+        .intro-text p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+
+        .intro-text span {
+            font-family: poppins;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 2px solid var(--primary);
+        }
+
+        .cta-btn:hover {
+            background-color: transparent;
+            color: var(--primary);
+        }
+
+        /* Education Section */
+        .edu-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            max-width: 900px;
+        }
+
+        .edu-box {
+            background-color: rgb(235, 235, 235);
+            padding: 30px;
+            border-left: 5px solid var(--primary);
+            border-radius: 8px 4px 4px 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .edu-box:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .edu-box h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+            font-family: 'Lora', serif;
+        }
+
+        .edu-box p {
+            color: #464646;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            max-width: 900px;
+        }
+
+        .skill-tag {
+            padding: 10px 20px;
+            background-color: white;
+            border: 1px solid var(--border);
+            transition: var(--transition);
+            cursor: default;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .skill-tag i {
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .skill-tag:hover i {
+            color: white;
+        }
+
+        /* Projects Section */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .project-card {
+            background-color: white;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 200px;
+            background-color: #f0f0f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+
+        .project-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+            font-weight: 600;
+            font-family: 'Lora', serif;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .tech-tag {
+            font-size: 0.8rem;
+            padding: 4px 10px;
+            background-color: #f0f0f0;
+            color: #666;
+        }
+
+        .project-desc {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .project-link {
+            display: inline-block;
+            padding: 8px 20px;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            text-align: center;
+            border: 1px solid var(--primary);
+            align-self: flex-start;
+        }
+
+        .project-link:hover {
+            background-color: transparent;
+            color: var(--primary);
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background-color: white;
+            color: var(--dark);
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border);
+        }
+
+        .social-link:hover {
+            transform: translateY(-10px);
+            background-color: var(--primary);
+            color: white;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--text-light);
+            padding: 30px 10%;
+            text-align: center;
+            border-top: 2px solid var(--border);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer-logo {
+            font-family: 'Dancing script', serif;
+            font-size: 2.3rem;
+            color: var(--secondary);
+        }
+
+        .footer-logo strong {
+            color: var(--text-light);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .copyright {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #999;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 999;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--dark);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .animate.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            section {
+                padding: 80px 5%;
+            }
+
+            .projects-container {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                height: 100vh;
+                background-color: var(--dark);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: var(--transition);
+                z-index: 1000;
+                padding: 2rem;
+                gap: 2rem;
+            }
+
+            .nav-links.active {
+                right: 0;
+                box-shadow: -5px 0 30px rgba(0, 0, 0, 0.2);
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .intro-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .intro-text p {
+                font-size: 1.1rem;
+            }
+
+            .projects-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.8rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .intro-text h1 {
+                font-size: 2rem;
+            }
+
+            .edu-box {
+                padding: 20px;
+            }
+
+            .edu-box h3 {
+                font-size: 1.2rem;
+            }
+
+            .social-link {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="logo">
+            <a href="#home"><strong>S</strong>tark's</a>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <a href="#home">Home</a>
+            <a href="#education">Education</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home">
+        <div class="intro-text">
+            <h1>Hi there, I'm <span style="color: var(--primary);">YashRoyz</span></h1>
+            <p>Bringing ideas to life through code excites me. I'd love to build visually dynamic and responsive
+                webpages with HTML, CSS, & JavaScript. As I sharpen my skills to become one of the best front-end
+                developers :)</p>
+            <a href="#projects" class="cta-btn">View My Work</a>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="animate">
+        <h1>Education</h1>
+        <div class="edu-container">
+            <div class="edu-box">
+                <h3>B.Tech - Vignan Lara Institution Of Technology And Science (ECE)</h3>
+                <p>Vadlamudi, Guntur <strong>2022-2026</strong></p>
+            </div>
+            <div class="edu-box">
+                <h3>Intermediate - Nehuru Nikethan Jr.collage (MPC)</h3>
+                <p>Bose Road, Tenali <strong>2020-2022</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="animate">
+        <h1>Skills</h1>
+        <div class="skills-container">
+            <span class="skill-tag"><i class="fas fa-code"></i>C Language</span>
+            <span class="skill-tag"><i class="fab fa-java"></i>Java</span>
+            <span class="skill-tag"><i class="fab fa-python"></i>Python</span>
+            <span class="skill-tag"><i class="fab fa-html5"></i>HTML</span>
+            <span class="skill-tag"><i class="fab fa-css3-alt"></i>CSS</span>
+            <span class="skill-tag"><i class="fab fa-js"></i>JavaScript</span>
+            <span class="skill-tag"><i class="fab fa-react"></i>React.js</span>
+            <span class="skill-tag"><i class="fab fa-bootstrap"></i>Bootstrap</span>
+            <span class="skill-tag"><i class="fab fa-css3"></i>Tailwind CSS</span>
+            <span class="skill-tag"><i class="fab fa-github"></i>GitHub</span>
+            <span class="skill-tag"><i class="fas fa-server"></i>Vercel</span>
+            <span class="skill-tag"><i class="fas fa-server"></i>Netlify</span>
+            <span class="skill-tag"><i class="fas fa-server"></i>Tiiny.host</span>
+            <span class="skill-tag"><i class="fab fa-figma"></i>Figma</span>
+            <span class="skill-tag"><i class="fas fa-paint-brush"></i>Canva</span>
+            <span class="skill-tag"><i class="fas fa-layer-group"></i>Framer</span>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="animate">
+        <h1>Projects</h1>
+        <div class="projects-container">
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="MagiK_Cuts Salon Website">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">MagiK_Cuts Salon</h3>
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Tailwind</span>
+                        <span class="tech-tag">Type Script</span>
+                        <span class="tech-tag">React.js</span>
+                        <span class="tech-tag">Next.js</span>
+                    </div>
+                    <p class="project-desc">Built with contemporary UI/UX standards, incorporating sleek styling, fluid
+                        animations, and backend software functionality supporting pre-bookings and instant bookings.</p>
+                    <a href="https://royz-saloon.netlify.app/" class="project-link" target="_blank" title="salon Website">
+                        <i class="fas fa-eye"></i> View Project</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                        alt="CosmiCruise Travels">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">CosmiCruise Travels</h3>
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Tailwind</span>
+                        <span class="tech-tag">Next.js</span>
+                        <span class="tech-tag">React.js</span>
+                        <span class="tech-tag">TypeScript</span>
+                    </div>
+                    <p class="project-desc">Crafted a modern, visually engaging travel landing page inspired by a deep
+                        passion for global exploration. The design includes a seamless booking section, integrated with
+                        backend software to ensure smooth and efficient reservations.</p>
+                    <a href="https://royz-travels.netlify.app/" class="project-link" target="_blank" title="Travels Website"> <i class="fas fa-eye"></i>
+                        View Project</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="Portfolio Website">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Portfolio</h3>
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Tailwind</span>
+                        <span class="tech-tag">Next.js</span>
+                    </div>
+                    <p class="project-desc">A passion-driven web development portfolio highlighting projects, skills,
+                        and interactive live demos for visitors to explore.</p>
+                    <a href="https://backend-port.netlify.app/" class="project-link" target="_blank" title="Portfolio Website"> <i
+                            class="fas fa-eye"></i> View Project</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80"
+                        alt="Expense Tracker System db">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Expense Tracker System db</h3>
+                    <div class="project-tech">
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">NEXT.JS</span>
+                        <span class="tech-tag">Type Script</span>
+                    </div>
+                    <p class="project-desc">Includes an expense and income adder with a summary table, bar graph
+                        visualization, and a log of previous transactions for effective financial tracking.</p>
+                    <a href="https://royz-expense-track.vercel.app/" class="project-link" target="_blank"
+                        title="expense tracker Website"> <i class="fas fa-eye"></i> View Project</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="To-Do Manager">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">To-Do Manager</h3>
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Tailwind</span>
+                        <span class="tech-tag">Next.js</span>
+                    </div>
+                    <p class="project-desc">Developed with a modern, user-centric design and integrated CRUD
+                        functionality for seamless task management.</p>
+                    <a href="https://royz-todo.netlify.app/" class="project-link" target="_blank"
+                        title="todo Website"> <i class="fas fa-eye"></i> View Project</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="https://images.unsplash.com/photo-1587145820266-a5951ee6f620?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="Calculator">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Calculator</h3>
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Tailwind</span>
+                    </div>
+                    <p class="project-desc">Developed with a user-friendly interface and smooth, visually striking
+                        animations for basic calculations — crafted to make even simple math feel dynamic and engaging.
+                    </p>
+                    <a href="https://royz-calculator.netlify.app/" class="project-link" target="_blank"
+                        title="Calculator"> <i class="fas fa-eye"></i> View Project</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="https://images.unsplash.com/photo-1601597111158-2fceff292cdc?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="ATM Simulator">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">ATM Simulator</h3>
+                    <div class="project-tech">
+                        <span class="tech-tag">C Language</span>
+                    </div>
+                    <p class="project-desc">Perform all the operations that an ATM can do with a user-friendly console
+                        interface.
+                    </p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="Employee Payroll System">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Employee Payroll System</h3>
+                    <div class="project-tech">
+                        <span class="tech-tag">C Language</span>
+                    </div>
+                    <p class="project-desc">Integrated all the features that a company should take care of for employee
+                        payroll management.</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                        alt="Hospital management System">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Hospital management System</h3>
+                    <div class="project-tech">
+                        <span class="tech-tag">JAVA</span>
+                    </div>
+                    <p class="project-desc">Includes all the operations of what an hospital managment interface can do.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="animate">
+        <h1>Contact</h1>
+        <div class="contact-container">
+            <div class="social-links">
+                <a href="https://wa.me/+917989552340" target="_blank" class="social-link" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://instagram.com/yashroy9938" target="_blank" class="social-link" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/share/15ZUGuWBXY/" target="_blank" class="social-link"
+                    aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://github.com/yash-dev-Design" target="_blank" class="social-link" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/yash-370744188" target="_blank" class="social-link"
+                    aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="mailto:mmvyash.143@gmail.com" class="social-link" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>            
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo"><strong>S</strong>tark</div>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#education">Education</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="copyright">© 2025. All rights reserved.<br>Designed with ❤️ by <strong
+                    style="color: var(--secondary);">Yash_Royz</strong> ;)</div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#home" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- JavaScript -->
+    <script>
+        // Toggle Menu
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        function toggleMenu() {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        }
+
+        hamburger.addEventListener('click', toggleMenu);
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.style.padding = '0.7rem 2rem';
+                navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.padding = '1rem 2rem';
+                navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            }
+        });
+
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                window.scrollTo({
+                    top: targetElement.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animation on scroll
+        const animateElements = document.querySelectorAll('.animate');
+
+        function checkIfInView() {
+            animateElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        // Check on load
+        window.addEventListener('load', checkIfInView);
+
+        // Check on scroll
+        window.addEventListener('scroll', checkIfInView);
+    </script>
+</body>
+
+</html>
